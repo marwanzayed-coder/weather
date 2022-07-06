@@ -110,20 +110,20 @@ async function fetchData(url) {
   }
 }
 
-// let btn = document.querySelector("button");
+let up = document.querySelector(".up");
 
-// window.onscroll = function () {
-//   if (window.scrollY >= 600) {
-//     btn.style.display = "block";
-//   } else {
-//     btn.style.display = "none";
-//   }
-// };
+window.onscroll = function () {
+  if (window.scrollY >= 600) {
+    up.style.display = "flex";
+  } else {
+    up.style.display = "none";
+  }
+};
 
-// btn.onclick = function () {
-//   window.scrollTo({
-//     left: 0,
-//     top: 0,
-//     behavior: "smooth",
-//   });
-// };
+up.onclick = function () {
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: "smooth",
+  });
+};
