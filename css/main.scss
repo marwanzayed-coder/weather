@@ -135,22 +135,8 @@
       counter-increment: services;
       transition: 0.3s;
       position: relative;
-      &::before {
-        content: "";
-        left: 50%;
-        transform: translateX(-50%);
-        height: 3px;
-        top: -3px;
-        background-color: $main-color;
-        position: absolute;
-        width: 0;
-        transition: 0.3s;
-      }
       &:hover {
         transform: translateY(-10px);
-      }
-      &:hover::before {
-        width: 100%;
       }
       > {
         i {
@@ -166,41 +152,6 @@
           color: $main-color;
         }
       }
-      .info {
-        padding: 15px;
-        position: relative;
-        background-color: #f9f9f9;
-        text-align: right;
-        &::before {
-          content: "0" counter(services);
-          position: absolute;
-          background-color: $main-color;
-          color: white;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 80px;
-          font-size: 30px;
-          font-weight: bold;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding-right: 15px;
-        }
-        &::after {
-          content: "";
-          position: absolute;
-          background-color: #d5d5d5;
-          top: 0;
-          left: 80px;
-          width: 50px;
-          height: calc(100% + 0.4px);
-          transform: skewX(-30deg);
-        }
-        a {
-          color: $main-color;
-        }
-      }
     }
   }
 }
@@ -208,7 +159,8 @@
 .up {
   width: 40px;
   height: 40px;
-  background-color: $silver;
+  background-color: $main-color;
+  color: $white;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -219,4 +171,7 @@
   font-size: 18px;
   border-radius: 10px;
   cursor: pointer;
+  opacity: 0;
+  z-index: -1000;
+  transition: 0.3s;
 }

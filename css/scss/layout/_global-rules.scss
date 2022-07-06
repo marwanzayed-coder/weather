@@ -41,27 +41,5 @@ ul {
     position: relative;
     margin-bottom: 70px;
     text-transform: uppercase;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 2px;
-      background-color: #333;
-      bottom: -30px;
-      width: 120px;
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 2px solid #333;
-      bottom: -38px;
-      background-color: white;
-    }
   }
 }

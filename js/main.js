@@ -88,6 +88,9 @@ async function fetchData(url) {
     // Append Main Div Variable On In Page
     result.appendChild(div);
   } catch (reason) {
+    // Clear Data In result container
+    result.innerHTML = "";
+
     // Create Main Div
     let div = document.createElement("div");
     div.className = "error";
@@ -114,9 +117,9 @@ let up = document.querySelector(".up");
 
 window.onscroll = function () {
   if (window.scrollY >= 600) {
-    up.style.display = "flex";
+    up.style.cssText = "opacity: 1; z-index: 1000;";
   } else {
-    up.style.display = "none";
+    up.style.cssText = "opacity: 0; z-index: -1000;";
   }
 };
 

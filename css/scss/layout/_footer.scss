@@ -40,12 +40,14 @@
     justify-content: space-between;
     align-items: center;
     font-weight: 400;
+    flex-wrap: wrap;
     .download {
       font-size: 18px;
       .imgs {
         display: flex;
         align-items: center;
         img {
+          cursor: pointer;
           &:last-child {
             height: 60px;
           }
@@ -63,6 +65,16 @@
         margin: 20px;
         font-size: 20px;
         cursor: pointer;
+        transition: 0.3s;
+        padding: 10px;
+        background-color: $main-color;
+        color: #fff;
+        border: 1px solid transparent;
+        &:hover {
+          color: $main-color;
+          background-color: transparent;
+          border: 1px solid $main-color;
+        }
       }
     }
   }
