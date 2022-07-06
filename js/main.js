@@ -7,7 +7,7 @@ btn.addEventListener("click", getInputVal);
 
 function getInputVal() {
   let city = input.value.toLowerCase();
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}%2Cegypt&appid=e36ed364400282e43250b6c4c0274d44&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}%2Cegypt&appid=e36ed364400282e43250b6c4c0274d44&units=metric`;
   fetchData(url);
 }
 
