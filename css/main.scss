@@ -1,0 +1,206 @@
+// Import Global Rules
+@use "./scss/layout/global-rules";
+
+// Import Color Variables
+@use "./scss/variables/colors" as *;
+
+// Import Header Style
+@use "./scss/layout/header";
+
+// Import Footer Style
+@use "./scss/layout/footer";
+
+// Import Mixins
+@use "./scss/helpers/mixins" as *;
+
+.landing {
+  background: url("../images/landing_page.jpg") center center no-repeat;
+  background-size: cover;
+  height: calc(100vh - 84px);
+  color: $white;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      @include mediaQuery(mobile) {
+        font-size: 40px;
+      }
+    }
+    p {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}
+
+.search_city {
+  background-color: $main-color;
+  padding: 30px 0;
+  input {
+    width: 80%;
+    padding: 8px 10px;
+    outline: none;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid $white;
+    @include mediaQuery(mobile) {
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+  button {
+    width: 19%;
+    padding: 8px 10px;
+    outline: none;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid $white;
+    margin-left: -1%;
+    cursor: pointer;
+    background-color: $white;
+    @include mediaQuery(mobile) {
+      width: 100%;
+      border-radius: 0;
+      margin: 0 {
+        top: 10px;
+      }
+    }
+  }
+}
+
+.result {
+  margin-bottom: 20px;
+  .weather {
+    div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      @include mediaQuery(mobile) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 10px 0;
+      background-color: $main-color;
+      color: $white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+  .error {
+    color: $error;
+    text-align: center;
+  }
+}
+
+.logos {
+  background-color: $silver;
+  padding: 30px 0;
+  overflow: hidden;
+  img {
+    height: 60px;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: inline-block;
+    animation: logoScroll 50s linear infinite;
+  }
+}
+
+@keyframes logoScroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-5350px, 0);
+  }
+}
+.services {
+  margin-top: 50px;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    .box {
+      background-color: white;
+      box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+      counter-increment: services;
+      transition: 0.3s;
+      position: relative;
+      &::before {
+        content: "";
+        left: 50%;
+        transform: translateX(-50%);
+        height: 3px;
+        top: -3px;
+        background-color: $main-color;
+        position: absolute;
+        width: 0;
+        transition: 0.3s;
+      }
+      &:hover {
+        transform: translateY(-10px);
+      }
+      &:hover::before {
+        width: 100%;
+      }
+      > {
+        i {
+          margin: 30px auto 20px;
+          display: block;
+          text-align: center;
+          color: #d5d5d5;
+        }
+        h3 {
+          text-align: center;
+          margin: 20px 0 40px;
+          font-size: 25px;
+          color: $main-color;
+        }
+      }
+      .info {
+        padding: 15px;
+        position: relative;
+        background-color: #f9f9f9;
+        text-align: right;
+        &::before {
+          content: "0" counter(services);
+          position: absolute;
+          background-color: $main-color;
+          color: white;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 80px;
+          font-size: 30px;
+          font-weight: bold;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-right: 15px;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: #d5d5d5;
+          top: 0;
+          left: 80px;
+          width: 50px;
+          height: calc(100% + 0.4px);
+          transform: skewX(-30deg);
+        }
+        a {
+          color: $main-color;
+        }
+      }
+    }
+  }
+}

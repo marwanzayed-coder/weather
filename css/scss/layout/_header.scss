@@ -1,0 +1,46 @@
+// Import Colors Variables
+@use "./scss/variables/colors" as *;
+
+// Import Mixins
+@use "../helpers/mixins" as *;
+.header {
+  padding: 10px 0;
+  background-color: $bg-header;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    @include mediaQuery(spacial) {
+      flex-wrap: wrap;
+      justify-content: center;
+      height: 100px;
+    }
+  }
+  div {
+    :not(.links) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .logo {
+    img {
+      height: 50px;
+    }
+  }
+  .links {
+    @include mediaQuery(spacial) {
+      margin-top: 10px;
+    }
+    a {
+      padding: 0 10px;
+      color: $silver;
+      transition: all 0.3s linear;
+      font-size: 18px;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

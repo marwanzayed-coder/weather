@@ -1,0 +1,67 @@
+@use "../helpers/mixins" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  @include mediaQuery(small) {
+    width: 750px;
+  }
+  @include mediaQuery(medium) {
+    width: 970px;
+  }
+  @include mediaQuery(large) {
+    width: 1170px;
+  }
+}
+
+.main-heading {
+  text-align: center;
+  h2 {
+    font-weight: normal;
+    font-size: 40px;
+    position: relative;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2px;
+      background-color: #333;
+      bottom: -30px;
+      width: 120px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      bottom: -38px;
+      background-color: white;
+    }
+  }
+}
